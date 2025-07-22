@@ -18,10 +18,13 @@
 <style>
 .teacher_card {
     background: #fff;
+    border: 1px solid #ddd;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     padding: 15px;
     transition: transform 0.3s, box-shadow 0.3s;
+    height: auto;
+    overflow: hidden;
 }
 
 .teacher_card:hover {
@@ -29,22 +32,60 @@
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
+.teacher_preview {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.teacher_preview iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.teacher_preview i {
+    font-size: 50px;
+}
+
 .teacher_content h5 {
     font-weight: 600;
-    font-size: 1.1rem;
-    margin-bottom: 8px;
+    font-size: 1.05rem;
+    margin-bottom: 2px;
 }
 
 .teacher_content p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: #555;
+}
+
+.description {
+    max-height: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .teacher_content a.btn,
 .teacher_content button.btn {
-    margin-top: 10px;
+    margin-top: 4px;
 }
 
+.read-more {
+    font-size: 0.85rem;
+    padding: 0;
+    color: #007bff;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.teacher_preview img {
+    max-height: 100px;
+    width: auto;
+    margin-bottom: 10px;
+}
 </style>
 </head>
 <body>
@@ -291,7 +332,7 @@
 
 	<!-- Top Teachers -->
 	<div class="clearfix" style="margin:10px;"></div> 
-<div class="teachers" style="margin:10px;">
+<div class="teachers" >
     <div class="container">
         <div class="row">
             <div class="col">
@@ -300,43 +341,58 @@
         </div>
         <div class="row teachers_row">
 
-            <!-- Video Card -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="teacher_card text-center">
-                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/SLTPiPwr6XM?si=yeUABDdbKQ236tqa" frameborder="0" allowfullscreen></iframe>
-                    <div class="teacher_content mt-3">
-                        <h5>প্রাচীন যুগের ভিডিও</h5>
-                        <p>এই ভিডিওতে প্রাচীন যুগের বাংলা সাহিত্যের গুরুত্বপূর্ণ বিষয়াবলী আলোচনা করা হয়েছে।</p>
-                        <p><strong>শিক্ষক:</strong> জনাব করিম</p>
-                    </div>
+           <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+            <div class="teacher_card text-center">
+                <div class="teacher_preview">
+                    <iframe src="https://www.youtube.com/embed/SLTPiPwr6XM?si=yeUABDdbKQ236tqa" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="teacher_content mt-2">
+                    <h5>প্রাচীন যুগের ভিডিও</h5>
+                    <p class="description">
+                                                 এই ভিডিওতে প্রাচীন যুগের বাংলা সাহিত্যের গুরুত্বপূর্ণ বিষয়াবলী আলোচনা করা হয়েছে। বিস্তারিত জানতে ভিডিওটি দেখুন।
+                    </p>
+                    <button class="btn btn-link read-more">বিস্তারিত দেখুন</button>
+                    <!-- <p class="author"><strong>শিক্ষক:</strong> জনাব করিম</p> -->
                 </div>
             </div>
+        </div>
+		
+		 <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+            <div class="teacher_card text-center">
+                <div class="teacher_preview">
+                      <img src="images/pdf.jpg" alt="PDF Preview" class="img-fluid" style="max-height:100px;">
+                </div>
+                <div class="teacher_content mt-2">
+                    <h5>প্রাচীন যুগের ভিডিও</h5>
+					 <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#pdfModal">ভিউ PDF</button>
+                    <p class="description">
+                                                 এই ভিডিওতে প্রাচীন যুগের বাংলা সাহিত্যের গুরুত্বপূর্ণ বিষয়াবলী আলোচনা করা হয়েছে। বিস্তারিত জানতে ভিডিওটি দেখুন।
+                    </p>
+					
+                    <button class="btn btn-link read-more">বিস্তারিত দেখুন</button>
+                    <!-- <p class="author"><strong>শিক্ষক:</strong> জনাব করিম</p> -->
+                </div>
+            </div>
+        </div>
+		
+		<div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+            <div class="teacher_card text-center">
+                <div class="teacher_preview">
+                      <img src="images/tele.png" alt="PDF Preview" class="img-fluid" style="max-height:100px;">
+                </div>
+                <div class="teacher_content mt-2">
+                    <h5>প্রাচীন যুগের ভিডিও</h5>
+					<a href="https://t.me/yourchannel" target="_blank" class="btn btn-info btn-sm">Join Telegram</a>
+                    <p class="description">
+                                                 এই ভিডিওতে প্রাচীন যুগের বাংলা সাহিত্যের গুরুত্বপূর্ণ বিষয়াবলী আলোচনা করা হয়েছে। বিস্তারিত জানতে ভিডিওটি দেখুন।
+                    </p>
+                    <button class="btn btn-link read-more">বিস্তারিত দেখুন</button>
+                   
+                </div>
+            </div>
+        </div>
 
-            <!-- PDF with Modal Trigger -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="teacher_card text-center">
-                    <i class="fa-solid fa-file-pdf fa-4x text-danger mb-3"></i>
-                    <div class="teacher_content">
-                        <h5>মধ্যযুগের সাহিত্য PDF</h5>
-                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#pdfModal">ভিউ PDF</button>
-                        <p class="mt-2">মধ্যযুগের বাংলা সাহিত্য সম্পর্কে বিস্তারিত নোট।</p>
-                        <p><strong>সংকলক:</strong> জনাব রাহিম</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Telegram Channel -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="teacher_card text-center">
-                    <i class="fab fa-telegram fa-4x text-info mb-3"></i>
-                    <div class="teacher_content">
-                        <h5>টেলিগ্রাম চ্যানেল</h5>
-                        <a href="https://t.me/yourchannel" target="_blank" class="btn btn-info btn-sm">Join Telegram</a>
-                        <p class="mt-2">টেলিগ্রাম চ্যানেলে বাংলা সাহিত্য প্রস্তুতির জন্য প্রয়োজনীয় সব তথ্য শেয়ার করা হয়।</p>
-                        <p><strong>মডারেটর:</strong> জনাব সোহেল</p>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </div>
@@ -459,5 +515,25 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="plugins/video-js/video.min.js"></script>
 <script src="plugins/video-js/Youtube.min.js"></script>
 <script src="js/instructors.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.read-more').forEach(function(button) {
+        button.addEventListener('click', function() {
+            const desc = this.previousElementSibling;
+            if (desc.classList.contains('expanded')) {
+                desc.style.maxHeight = '50px';
+                this.textContent = 'বিস্তারিত দেখুন';
+                desc.classList.remove('expanded');
+            } else {
+                desc.style.maxHeight = '1000px'; // large value to fully expand
+                this.textContent = 'কম দেখান';
+                desc.classList.add('expanded');
+            }
+        });
+    });
+});
+</script>
+
 </body>
 </html>
